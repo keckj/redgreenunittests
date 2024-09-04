@@ -138,8 +138,6 @@ class TestLoader(object):
             return attrname.startswith(prefix) and \
                 hasattr(getattr(testCaseClass, attrname), '__call__')
         testFnNames = list(filter(isTestMethod, dir(testCaseClass)))
-        if self.sortTestMethodsUsing:
-            testFnNames.sort(key=_CmpToKey(self.sortTestMethodsUsing))
         return testFnNames
 
     def discover(self, start_dir, pattern='test*.py', top_level_dir=None):
